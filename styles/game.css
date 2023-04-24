@@ -52,4 +52,9 @@
 }
 
 
+#game-bord li.disabled {
+    background-color: rgb(112, 13, 204);
+    color:white;
+    cursor: default;
+}
 
