@@ -1,1 +1,3 @@
-function openPlayerConfig() {}
+function openPlayerConfig() {
+    
+}
