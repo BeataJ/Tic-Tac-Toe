@@ -9,18 +9,25 @@ function closePlayerConfig() {
     backdropElement.style.display = 'none';
     formElement.firstElementChild.classList.remove('error');
     errorOutputElement.textContent = '';
+    formElement.firstElementChild.lastElementChild.value = '';
 }
 
 function savePlayerConfig(event) {
     event.preventDefault();
     // console.log(event);
     const formData = new FormData(event.target);
-    const enteredPlayerName = formData.get('playername').trim();
+    const enteredPlayername = formData.get('playername').trim();
     
-    if (!enteredPlayerName) {
+    if (!enteredPlayername) {
         event.target.firstElementChild.classList.add('error');
         errorOutputElement.textContent = 'Please enter a valid name!';
         return;
     }
 
+    const updatedPlayerDataElement = document.getElementById('player-' + editedPlayer + '-data');
+    updatedPlayerDataElement.children[1].textContent = enteredPlayername;
+
+    players[editedPlayer - 1].name = enteredPlayername;
+
+    closePlayerConfig();
 } 
