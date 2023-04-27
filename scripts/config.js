@@ -1,4 +1,5 @@
-function openPlayerConfig() {
+function openPlayerConfig(event) {
+    editedPlayer = +event.target.dataset.playerid;
     playerConfigOverlayElement.style.display = 'block';
     backdropElement.style.display = 'block';
 }
@@ -6,6 +7,8 @@ function openPlayerConfig() {
 function closePlayerConfig() {
     playerConfigOverlayElement.style.display = 'none';
     backdropElement.style.display = 'none';
+    formElement.firstElementChild.classList.remove('error');
+    errorOutputElement.textContent = '';
 }
 
 function savePlayerConfig(event) {
