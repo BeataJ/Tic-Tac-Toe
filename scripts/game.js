@@ -1,3 +1,11 @@
+function resetGameStatus() {
+    activePlayer = 0;
+    currentRound = 1;
+    gameOverElement.firstElementChild.innerHTML =
+      'You won, <span id="winner-name">PLAYER NAME</span>!';
+      gameOverElement.style.display = 'none';
+}
+
 function startNewGame() {
   if (players[0].name === "" || players[1].name === "") {
     alert("Please set custom player names for both players!");
