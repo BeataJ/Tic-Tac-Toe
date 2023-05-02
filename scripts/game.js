@@ -36,8 +36,11 @@ function selectGameField(event) {
   selectedField.classList.add("disabled");
 
   gameData[selectedRow][selectedColumn] = activePlayer + 1;
-  console.log(gameData);
+  
+  const winnerId = checkForGameOver();
+  console.log(winnerId);
 
+  currentRound++;
   switchPlayer();
 }
 
@@ -61,4 +64,24 @@ function checkForGameOver() {
       return gameData[0][i];
     }
   }
+
+  if(gameData[0][0] > 0 && 
+    gameData[0][0] === gameData[1][1] &&
+    gameData[1][1] === gameData[2][2]
+    ) {
+        return gameData[0][0]
+    }
+
+    if(gameData[2][0] > 0 && 
+    gameData[2][0] === gameData[1][1] &&
+    gameData[1][1] === gameData[0][2]
+    ) {
+        return gameData[2][0];
+    }
+
+    if(currentRound === 9) {
+        return -1;
+    }
+
+    return 0;
 }
